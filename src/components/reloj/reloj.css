@@ -1,0 +1,71 @@
+@font-face {
+    font-family: digital;
+    src: url('../../assets/fonts/digital/DS-DIGI.TTF'), url('../../assets/fonts/digital/DS-DIGIB.TTF');
+}
+
+.clock-container{
+    width: 85vw;
+    padding: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.pomodoro-container{
+    height: 100%;
+    padding: 0px 35px;
+}
+
+.pomodoro-container--box{
+    padding: 10px 25px;
+    max-height: 350px;
+    min-height: 234px;
+    display: grid;
+    grid-template-columns: repeat(4,40px);
+    grid-auto-rows: 40px;
+    overflow: auto;
+    -webkit-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+    border-radius: 25px;
+}
+
+.pomodoro-container--box i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #FFA80D;
+}
+
+.pomodoro-container--box::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+}
+
+.pomodoro-container--box::-webkit-scrollbar-thumb {
+    background: #c7ceff;
+    border-radius: 15px;
+}
+
+.pomodoro-container--box::-webkit-scrollbar-thumb:hover {
+    background: #b9c1fa;
+}
+
+.pomodoro-container--box::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: inset 12px 4px 12px #f0f0f0;
+}
+
+.clock{
+    font-family: digital;
+    font-weight: normal;
+    font-size: 14em;
+    color: #fff;
+    -webkit-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 22px -6px rgba(0,0,0,0.75);
+    padding: 5px;
+    border-radius: 25px;
+}

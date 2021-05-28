@@ -1,0 +1,59 @@
+.spoty-container{
+    width: 100%;
+    background-color: #222;
+    color: #fff;
+    padding: 25px 1em;
+    position: relative;
+}
+
+.reproductor-container{
+    width: max-content;
+    display: flex;
+    margin: auto;
+    align-items: center;
+}
+
+.reproductor-container i{
+    cursor: pointer;
+}
+
+.reproductor-container i:nth-child(even){
+    font-size: 4em;
+}
+
+.reproductor-container i:nth-child(odd){
+    font-size: 2em;
+    margin: 0 50px;
+}
+
+.song-container{
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    height: inherit;
+    top: 0;
+    bottom: 0;
+    padding: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.song-container--image{
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    background-color: red;
+}
+
+.song-container--image img{
+    width: 100%;
+}
+
+.song-container--name{
+    display: flex;
+    flex-direction: column;
+}
+
+.song-container--name h5{
+    font-size: 15px;
+}
+
