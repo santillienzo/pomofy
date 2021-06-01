@@ -59,6 +59,8 @@
 }
 
 .clock{
+    text-align: center;
+    min-width: 500px;
     font-family: digital;
     font-weight: normal;
     font-size: 14em;
