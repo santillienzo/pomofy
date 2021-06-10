@@ -3,20 +3,20 @@ import './nav.css'
 
 
 const Nav = (props) => {
-    const [activate, setActivate] = useState(false);
+    const [open, setOpen] = useState(false);
 
     const desplegarMenu = ()=>{
         const menu = document.getElementById('menu')
     
-        if (activate) {
+        if (open) {
             menu.classList.remove('animate__slideInLeft');
             menu.classList.add('animate__slideOutLeft');
-            setActivate(false);
+            setOpen(false);
         }else{
             menu.classList.remove('animate__slideOutLeft')
             menu.classList.add('animate__slideInLeft')
             menu.style.display="block";
-            setActivate(true);
+            setOpen(true);
         }
     }
     
