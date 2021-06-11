@@ -7,7 +7,7 @@ const Buttons = (props) => {
                 (props.status === 0)?
                 <div className="btns-container--btn"  onClick={props.start}><i class="far fa-play-circle"></i></div>
                 :
-                <div className="btns-container--btn" onClick={props.stop}><i class="far fa-pause-circle"></i></div>
+                <div className="btns-container--btn" onClick={props.stop} id="btn-stop"><i class="far fa-pause-circle"></i></div>
             }
             
             <div className="btns-container--btn" onClick={props.reset}><i class="far fa-stop-circle"></i></div>

@@ -7,18 +7,23 @@ import './reloj.css';
 
 
 const Pomodoro = (props) => {
-    const [time, setTime] = useState({s:10, m:0});
-    const [interv, setInterv] = useState();
-    const [status, setStatus] = useState(0);
 
+    //Estados del reloj
+    const [time, setTime] = useState({s:5, m:0});
+    const [interv, setInterv] = useState();
+    let [status, setStatus] = useState(0);
+
+    //Función: Comienza el contador ejecutando la función run() como un intervalo.
     const start = () => {
         run();
         setStatus(1);
         setInterv(setInterval(run, 1000));
     };
 
+    //Definimos las variables de segundos y minutos.
     let updatedS = time.s, updatedM = time.m;
 
+    //Función: Esta función es llamada por start() y se ejecuta en intervalo hasta que damos stop.
     const run = () => {
         if (updatedM !== 0) {
             if (updatedS === 0) {
@@ -29,7 +34,8 @@ const Pomodoro = (props) => {
 
         }else{
             if (updatedS === 0) {
-                return 0;
+                document.getElementById('btn-stop').click();
+                return false;
             }
 
             updatedS--;
@@ -38,11 +44,14 @@ const Pomodoro = (props) => {
         return setTime({s:updatedS, m:updatedM});
     };
 
+    //Función: Detiene el cronómetro.
     const stop = () => {
         clearInterval(interv);
         setStatus(0);
+        return true;
     };
 
+    //Función: Reinicia el cronómetro.
     const reset = () => {
         clearInterval(interv);
         setStatus(0);
@@ -52,12 +61,11 @@ const Pomodoro = (props) => {
         })
     };
 
-    const resume = () => start();
 
     return (
         <div className="clock-container" style={props.style}>
             <Pomodoros/>
-            <Buttons  status={status} resume={resume} reset={reset} stop={stop} start={start}/>
+            <Buttons  status={status} reset={reset} stop={stop} start={start}/>
             <Clock time={time}/>
         </div>
     );
