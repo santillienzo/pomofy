@@ -9,17 +9,15 @@ import sonido from './sonido.mp3'
 
 
 const Pomodoro = (props) => {
-    //Audio
     
 
     //Estados del reloj
-    const [time, setTime] = useState({s:5, m:0});
+    const [time, setTime] = useState({s:0, m:25});
     const [interv, setInterv] = useState();
     const [status, setStatus] = useState(0);
     
     //Aquí se almacenarán los pomodoros.
     const [listPomodoros, setListPomodoros] = useState([])
-
 
 
     //Función: Comienza el contador ejecutando la función run() como un intervalo.
@@ -43,16 +41,29 @@ const Pomodoro = (props) => {
 
         }else{
             if (updatedS === 0) {
-                document.getElementById('btn-stop').click();
-                setTime({
-                    s: 5,
-                    m: 0
-                });
-                props.changeBackground();
-                if (props.repose === false) {
-                    setListPomodoros([...listPomodoros,{class: "fas fa-stopwatch"}]);
+                document.getElementById('btn-stop').click(); //Pausamos el Pomodoro haciendo click en el btn de pause.
+                let audio = new Audio(sonido).play();   //Reproducimos el sonido de notificación
+                if (props.repose === false) {   //Si no estamos en reposo:
+                    setListPomodoros([...listPomodoros,{class: "fas fa-stopwatch"}]);   //Añadimos un pomodoro
+                    if((listPomodoros.length+ 1)%4 === 0){
+                        setTime({ 
+                            s: 0,
+                            m: 15
+                        }); //Actualizamos el tiempo de descanso.
+                    }else{
+                        setTime({ 
+                            s: 0,
+                            m: 5
+                        }); //Actualizamos el tiempo de descanso.
+                    }
+                }else{
+                    setTime({ 
+                        s: 0,
+                        m: 25
+                    }); //Actualizamos el tiempo de descanso.
                 }
-                var audio = new Audio(sonido).play();
+                audio = null;   //Eliminamos el objeto para liberar memoria
+                props.changeBackground(); //Ejecutamos la función para cambiar el estado de 'working' a 'repose' y cambiamos color.
                 return false;
             }
 
