@@ -1,10 +1,15 @@
 import React from 'react';
 
-const Pomodoros = () => {
+const Pomodoros = (props) => {
+    
     return (
         <div className="pomodoro-container">
             <div className="pomodoro-container--box">
-                <i class="fas fa-stopwatch"></i>
+                {
+                    props.listPomodoros.map((element) => (
+                        <i class={element.class}></i>
+                    ))
+                }
             </div>
         </div>
     );

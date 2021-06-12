@@ -5,12 +5,12 @@ const Buttons = (props) => {
         <div className="btns-container">  
             {
                 (props.status === 0)?
-                <div className="btns-container--btn"  onClick={props.start}><i class="far fa-play-circle"></i></div>
+                <div className="btns-container--btn"  onClick={props.start} title="Iniciar"><i class="far fa-play-circle"></i></div>
                 :
-                <div className="btns-container--btn" onClick={props.stop} id="btn-stop"><i class="far fa-pause-circle"></i></div>
+                <div className="btns-container--btn" onClick={props.stop} id="btn-stop" title="Pausa"><i class="far fa-pause-circle"></i></div>
             }
             
-            <div className="btns-container--btn" onClick={props.reset}><i class="far fa-stop-circle"></i></div>
+            <div className="btns-container--btn" onClick={props.reset} title="Terminar Pomodoro"><i class="far fa-stop-circle"></i></div>
         </div>
     );
 };

@@ -3,15 +3,24 @@ import Buttons from './Buttons';
 import Clock from './Clock';
 import Pomodoros from './Pomodoros';
 import './reloj.css';
+import sonido from './sonido.mp3'
+
 
 
 
 const Pomodoro = (props) => {
+    //Audio
+    
 
     //Estados del reloj
     const [time, setTime] = useState({s:5, m:0});
     const [interv, setInterv] = useState();
-    let [status, setStatus] = useState(0);
+    const [status, setStatus] = useState(0);
+    
+    //Aquí se almacenarán los pomodoros.
+    const [listPomodoros, setListPomodoros] = useState([])
+
+
 
     //Función: Comienza el contador ejecutando la función run() como un intervalo.
     const start = () => {
@@ -35,6 +44,15 @@ const Pomodoro = (props) => {
         }else{
             if (updatedS === 0) {
                 document.getElementById('btn-stop').click();
+                setTime({
+                    s: 5,
+                    m: 0
+                });
+                props.changeBackground();
+                if (props.repose === false) {
+                    setListPomodoros([...listPomodoros,{class: "fas fa-stopwatch"}]);
+                }
+                var audio = new Audio(sonido).play();
                 return false;
             }
 
@@ -58,13 +76,18 @@ const Pomodoro = (props) => {
         setTime({
             s: 0,
             m: 25
-        })
+        });
+        setListPomodoros([]);
+        if (props.repose) {
+            props.changeBackground();
+        }
     };
+
 
 
     return (
         <div className="clock-container" style={props.style}>
-            <Pomodoros/>
+            <Pomodoros listPomodoros={listPomodoros}/>
             <Buttons  status={status} reset={reset} stop={stop} start={start}/>
             <Clock time={time}/>
         </div>
