@@ -12,7 +12,7 @@ const Pomodoro = (props) => {
     
 
     //Estados del reloj
-    const [time, setTime] = useState({s:0, m:25});
+    const [time, setTime] = useState({s:0, m:props.workingTime});
     const [interv, setInterv] = useState();
     const [status, setStatus] = useState(0);
     
@@ -48,18 +48,18 @@ const Pomodoro = (props) => {
                     if((listPomodoros.length+ 1)%4 === 0){
                         setTime({ 
                             s: 0,
-                            m: 15
+                            m: props.largePause
                         }); //Actualizamos el tiempo de descanso.
                     }else{
                         setTime({ 
                             s: 0,
-                            m: 5
+                            m: props.shortPause
                         }); //Actualizamos el tiempo de descanso.
                     }
                 }else{
                     setTime({ 
                         s: 0,
-                        m: 25
+                        m: props.workingTime
                     }); //Actualizamos el tiempo de descanso.
                 }
                 audio = null;   //Eliminamos el objeto para liberar memoria
@@ -86,7 +86,7 @@ const Pomodoro = (props) => {
         setStatus(0);
         setTime({
             s: 0,
-            m: 25
+            m: props.workingTime
         });
         setListPomodoros([]);
         if (props.repose) {

@@ -4,7 +4,7 @@ import './title.css'
 const Title = (props) => {
     return (
         <div className="title-container" style={props.style}>
-            <h3>TP facultad</h3>
+            <h3>Tarea</h3>
         </div>
     );
 };

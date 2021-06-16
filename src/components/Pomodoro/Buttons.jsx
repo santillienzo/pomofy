@@ -10,7 +10,7 @@ const Buttons = (props) => {
                 <div className="btns-container--btn" onClick={props.stop} id="btn-stop" title="Pausa"><i class="far fa-pause-circle"></i></div>
             }
             
-            <div className="btns-container--btn" onClick={props.reset} title="Terminar Pomodoro"><i class="far fa-stop-circle"></i></div>
+            <div className="btns-container--btn" onClick={props.reset} id="btn-reset" title="Terminar Pomodoro"><i class="far fa-stop-circle"></i></div>
         </div>
     );
 };
