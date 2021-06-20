@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 
 import Pomodoro from './components/Pomodoro/Pomodoro'

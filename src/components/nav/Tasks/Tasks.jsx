@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './tasks.css'
 
 
+
 const Tasks = () => {
 
     const [tasks, setTasks] = useState([]);
@@ -9,15 +10,20 @@ const Tasks = () => {
     const [adding, setAdding] = useState(false);
 
 
-    const submitTask =(e)=>{
+    const handleSubmit =(e)=>{
         e.preventDefault();
         setTasks([...tasks, {id:0 ,name: task}]);
         setTask("");
         setAdding(false)
+        addTask(tasks)
     }
 
     const handleTask= (e)=>{
         setTask(e.target.value);
+    }
+
+    const addTask = async(tasks)=>{
+        console.log("new task added")
     }
 
     return (
@@ -42,10 +48,15 @@ const Tasks = () => {
                                 {
                                     adding ?
                                     (
-                                        <form action="" onSubmit={submitTask} className="taskForm">
+                                        <form action="" onSubmit={handleSubmit} className="taskForm">
                                             <li>
                                                 <i class="fas fa-caret-right"></i>
-                                                <input type="text" onChange={handleTask} value={task}/>
+                                                <input 
+                                                    type="text" 
+                                                    onChange={handleTask} 
+                                                    value={task} placeholder="Tarea" 
+                                                    name="taskName"
+                                                />
                                             </li>
                                         </form>
                                     )
@@ -55,9 +66,9 @@ const Tasks = () => {
                             </ul>
                             <ul>
                                 {
-                                    tasks.map(i =>(
-                                        <li className="nav-container--menu_task-task">
-                                            <p>{i.name}</p>
+                                    tasks.map((element, i) =>(
+                                        <li className="nav-container--menu_task-task" key={i}>
+                                            <p>{element.name}</p>
                                             <i class="fas fa-edit"></i>
                                             <i className="fas fa-trash-alt"></i>
                                         </li>
