@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-pomofy-dev-45308-authRole",
+      "UnauthRoleArn": "arn:aws:iam::827730446927:role/amplify-pomofy-dev-45308-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::827730446927:role/amplify-pomofy-dev-45308-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-pomofy-dev-45308-deployment",
+      "UnauthRoleName": "amplify-pomofy-dev-45308-unauthRole",
+      "StackName": "amplify-pomofy-dev-45308",
+      "StackId": "arn:aws:cloudformation:us-east-2:827730446927:stack/amplify-pomofy-dev-45308/90c5af30-d19c-11eb-a56c-0a2e4ecf81b2",
+      "AmplifyAppId": "dp5cdvaw981lr"
+    }
+  }
+}
