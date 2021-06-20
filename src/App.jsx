@@ -7,7 +7,7 @@ import Nav from './components/nav/Nav'
 import Title from './components/title/Title'
 import { useState } from 'react';
 
-function App() {
+function App() { 
   //STATES
   const[repose, setRepose] = useState(false)
 
